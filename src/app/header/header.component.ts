@@ -8,7 +8,7 @@ import { Bookmark } from '../bookmark-list/bookmark.model';
 })
 export class HeaderComponent implements OnInit {
 
-  bookmark : Bookmark [] ;
+  bookmark : Bookmark [] = [];
 
   constructor() { }
 

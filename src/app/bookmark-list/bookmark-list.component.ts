@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit, Input } from '@angular/core'; 
 import { Bookmark } from './bookmark.model';
+import { BookmarkService } from '../bookmark.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-bookmark-list',
@@ -7,23 +9,41 @@ import { Bookmark } from './bookmark.model';
   styleUrls: ['./bookmark-list.component.css']
 })
 export class BookmarkListComponent implements OnInit {
-  BookmarkList : Bookmark[] = [
-    new Bookmark(
-      'Google',
-      'https://gogle.com',
-      'Old Boring Search Engine with uselesss information dumped and fetched everyday'
-    ),
-    new Bookmark(
-      'Yahoo',
-      'https://yaho.com',
-      'Another Search Engine with uselesss information dumped and fetched everyday'
-    )
-  ];
-  
-  constructor() { }
+  closeResult: string;
 
+  bookmarks : Bookmark[];
+  constructor(private bookmarkservice : BookmarkService,private modalService: NgbModal) { }
+  
   ngOnInit() {     
-    
+    this.bookmarks = this.bookmarkservice.allbookmark;
+    console.log(this.bookmarks);
+  }
+
+  onEditLink(openEditModal) {
+    this.modalService.open(openEditModal).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
+
+  onDeleteLink(openDeleteModal){
+    this.modalService.open(openDeleteModal).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
 
 }

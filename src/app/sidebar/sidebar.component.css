@@ -1,0 +1,10 @@
+.list-group .list-group-item {
+    border-left-width: 0;
+    border-right-width: 0;
+}
+.list-group .list-group-item:last-of-type {
+    border-bottom-width: 0;
+}
+.list-group .list-group-item:first-of-type {
+    border-top-width: 0;
+}

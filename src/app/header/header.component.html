@@ -40,8 +40,9 @@
       </li>
 
 
-      <li class="nav-item dropdown" >
+      <li class="nav-item dropdown" ngbDropdown>
             <a class="nav-item nav-link dropdown-toggle mr-md-2" 
+              ngbDropdownToggle   
               href="#"
               id="bd-versions"
               data-toggle="dropdown"
@@ -49,11 +50,10 @@
                aria-expanded="true">
               Create Username
             </a>
-            <div 
-              appDropdown
+            <div  
+              ngbDropdownMenu
               class="dropdown-menu dropdown-menu-right" 
-              aria-labelledby="bd-versions"                            
-              >
+              aria-labelledby="bd-versions">
               <a class="dropdown-item" href="/docs/4.1/">Switch User</a> 
             </div>
       </li>
