@@ -6,19 +6,12 @@ import { Bookmark } from '../bookmark-list/bookmark.model';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-
-  bookmark : Bookmark [] = [];
+export class HeaderComponent implements OnInit { 
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  newlinkAdded(newbookmark : Bookmark){
-    this.bookmark.push(newbookmark);
-    console.log(this.bookmark);
-    
-  }
+ 
 
 }

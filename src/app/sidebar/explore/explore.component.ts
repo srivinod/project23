@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Bookmark } from '../../bookmark-list/bookmark.model';
+import { BookmarkService } from '../../bookmark.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-explore',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploreComponent implements OnInit {
 
-  constructor() { }
+  private expBookmark : Bookmark[];
+  constructor(private bookmarkservice : BookmarkService,private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.expBookmark = this.bookmarkservice.expAllBookmark;
   }
 
 }

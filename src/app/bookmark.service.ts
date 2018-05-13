@@ -17,6 +17,20 @@ export class BookmarkService {
     )
   ];
 
+  expAllBookmark : Bookmark[] = [
+    new Bookmark(
+      'Facebook',
+      'https://fb.com',
+      'A time wasting platform to destory your life yourselves'
+    ),
+    new Bookmark(
+      'IBM',
+      'https://ibm.com',
+      'Creepy machine sellers turned into a business people by fate.'
+    )
+  ];
+
+
   constructor() { }
 
   addBookmark(title : string, link:string,description : string){
