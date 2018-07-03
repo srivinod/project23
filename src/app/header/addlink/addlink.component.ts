@@ -9,6 +9,7 @@ import { BookmarkService } from '../../bookmark.service';
 })
 export class AddlinkComponent implements OnInit {
   @ViewChild('bmkLinkUrl') bookmarkLink : ElementRef;
+  bookmarkId = 1;
   bookmarkTitle = 'Microsoft';
   bookmarkDescription = 'Old Boring Search Engine with uselesss information dumped and fetched everyday This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.';
  
@@ -19,7 +20,7 @@ export class AddlinkComponent implements OnInit {
 
   onLinkAdded(){
     const linkTitle = this.bookmarkLink.nativeElement.value; 
-    this.bookmarservice.addBookmark(this.bookmarkTitle,linkTitle,this.bookmarkDescription);
+    this.bookmarservice.addBookmark(this.bookmarkId,this.bookmarkTitle,linkTitle,this.bookmarkDescription);
     return false;
   }
 }
